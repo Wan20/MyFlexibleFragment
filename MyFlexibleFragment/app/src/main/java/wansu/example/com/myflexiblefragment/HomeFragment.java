@@ -3,6 +3,8 @@ package wansu.example.com.myflexiblefragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,6 @@ import android.widget.Button;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -33,6 +34,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_category) {
+            FragmentManager mFragmentManager = getFragmentManager();
+            FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
+            CategoryFragment mCategoryFragment = new CategoryFragment();
+            mFragmentTransaction.replace(R.id.frame_container,mCategoryFragment,CategoryFragment.class.getSimpleName());
+            mFragmentTransaction.addToBackStack(null);
+            mFragmentTransaction.commit();
         }
     }
 }

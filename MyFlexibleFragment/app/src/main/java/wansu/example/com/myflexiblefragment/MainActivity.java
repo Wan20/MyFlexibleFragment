@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager mFragmentManager = getSupportFragmentManager();
         FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
         HomeFragment mHomeFragment = new HomeFragment();
-        mFragmentTransaction.add(R.id.frame_container, mHomeFragment, HomeFragment.class.getName());
+        mFragmentTransaction.add(R.id.frame_container, mHomeFragment, HomeFragment.class.getSimpleName());
 
         Log.d("MyFlexibleFragment", "Fragment Name :"+ HomeFragment.class.getSimpleName());
         mFragmentTransaction.commit();
